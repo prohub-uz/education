@@ -119,7 +119,8 @@ To deploy the service in a production environment:
 1. Set `DEBUG=False` in the `.env` file.  
 2. Use a production-ready web server like Gunicorn or uWSGI to serve the application.  
 3. Configure a reverse proxy like Nginx or Apache for handling incoming requests.  
-4. Ensure RabbitMQ is running and reachable via the configured `RABBITMQ_URL`.  
+4. Ensure RabbitMQ is running and reachable via the configured `RABBITMQ_URL`.
+5. Set allowed hosts in `CORS_ALLOWED_ORIGINS` to make connection with frontend.
 
 ---
 
