@@ -105,11 +105,23 @@ Admins can use the service to manage educational content:
 - **Modules**: Manage modules linked to specialities.  
 - **Lessons**: Manage lessons linked to modules.  
 
+Admin user can do get, post, put, patch, delete methods for these API urls:
+- **Get Specialities**: `/manager/control-speciality/`
+- **Update or Delete Speciality**: `/manager/control-speciality/{id}`
+- **Get Modules**: `/manager/control-module/`
+- **Update or Delete Module**: `/manager/control-module/{id}`
+- **Get Lessons**: `/manager/control-lesson/`
+- **Update or Delete Lesson**; `/manager/control-lesson/{id}`
+
+There is IsAdmin permission to provide full control of education activities for only Admin user.
+
 ### Client Access  
 Clients can only view educational content:  
-- **Get Specialities**: Retrieve all specialities.  
-- **Get Modules by Speciality**: Retrieve modules linked to a specific speciality.  
-- **Get Lessons by Module**: Retrieve lessons linked to a specific module.  
+- **Get Specialities**: Retrieve all specialities.  `/edu/specialities/`
+- **Get Modules by Speciality**: Retrieve modules linked to a specific speciality.  `/edu/modules/`
+- **Get Lessons by Module**: Retrieve lessons linked to a specific module.  `/edu/lessons/`
+
+You can get with detail information about each speciality, module or lesson by adding `{id}` in suitable API url.
 
 ---
 
