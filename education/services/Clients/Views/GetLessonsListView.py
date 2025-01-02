@@ -1,4 +1,4 @@
-from education.services.Clients.Serializers.GetLessonSerializer import LessonSerializer
+from education.services.Serializers.GetLessonSerializer import LessonSerializer
 from rest_framework.response import Response
 from rest_framework import status
 from rest_framework.views import APIView

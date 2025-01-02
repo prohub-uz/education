@@ -1,4 +1,4 @@
-from education.services.Clients.Serializers.GetModulesSerializer import GetModuleSerializer
+from education.services.Serializers.GetModulesSerializer import GetModuleSerializer
 from education.models import Module
 from rest_framework.response import Response
 from rest_framework import status

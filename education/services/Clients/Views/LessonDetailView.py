@@ -2,7 +2,7 @@ from education.models import Lesson
 from rest_framework.response import Response
 from rest_framework import status
 from rest_framework.views import APIView
-from education.services.Clients.Serializers.GetLessonSerializer import LessonSerializer
+from education.services.Serializers.GetLessonSerializer import LessonSerializer
 
 class LessonDetailView(APIView):
     def get(self, request, pk):

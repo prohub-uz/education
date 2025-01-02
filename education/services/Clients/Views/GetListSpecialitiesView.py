@@ -1,4 +1,4 @@
-from education.services.Clients.Serializers.GetListSpecialitiesSerializer import ListSpecialitiesSerializer
+from education.services.Serializers.GetListSpecialitiesSerializer import ListSpecialitiesSerializer
 from education.models import Speciality
 from rest_framework.response import Response
 from rest_framework import status

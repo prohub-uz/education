@@ -1,7 +1,6 @@
 from rest_framework import serializers
 from education.models import Lesson
-from education.services.Clients.Serializers.GetModulesSerializer import GetModuleSerializer
-from education.services.Clients.Serializers.GetListSpecialitiesSerializer import ListSpecialitiesSerializer
+from education.services.Serializers.GetModulesSerializer import GetModuleSerializer
 
 # Get lessons by module
 class LessonSerializer(serializers.ModelSerializer):
