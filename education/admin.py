@@ -10,12 +10,14 @@ class UserAdmin(admin.ModelAdmin):
 @admin.register(Speciality)
 class SpecialityAdmin(admin.ModelAdmin):
     list_display = ('name', 'description', 'teacher', 'id')
+    list_filter = ('teacher',)
     ordering = ['id']
 
 
 @admin.register(Module)
 class ModuleAdmin(admin.ModelAdmin):
     list_display = ('name', 'speciality', 'price', 'description', 'id')
+    list_filter = ('speciality',)
     ordering = ['id']
     
 
@@ -29,6 +31,6 @@ class LessonAdmin(admin.ModelAdmin):
 
 @admin.register(Teacher)
 class TeacherAdmin(admin.ModelAdmin):
-    list_display = ('user', 'is_active', 'id')
+    list_display = ('user', 'about', 'is_active', 'id')
     list_editable = ('is_active',)
     ordering = ['id']

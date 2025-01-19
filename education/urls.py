@@ -1,5 +1,5 @@
 from django.urls import path
-from .views import GetListSpecialities, GetModules, ModuleDetailView, GetLessonsListView, LessonDetailView
+from .views import GetListSpecialities, GetModules, ModuleDetailView, GetLessonsListView, LessonDetailView, GetTeachersListView
 
 urlpatterns = [
     path('specialities/', GetListSpecialities),
@@ -7,4 +7,5 @@ urlpatterns = [
     path('modules/<int:pk>/', ModuleDetailView),
     path('lessons/', GetLessonsListView),
     path('lessons/<int:pk>/', LessonDetailView),
+    path('teachers/', GetTeachersListView),
 ]
