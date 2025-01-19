@@ -4,7 +4,7 @@ from django.core.validators import MinValueValidator
 
 
 class User(AbstractUser):
-    teacher = models.CharField(max_length=50, blank=True)
+    pass
     
     def __str__(self):
         return self.username
@@ -14,11 +14,19 @@ class User(AbstractUser):
         verbose_name_plural = 'Users'
 
 
+class Teacher(models.Model):
+    user = models.OneToOneField(User, on_delete=models.CASCADE, related_name='teacher')
+    is_active = models.BooleanField(default=True)
+    
+    def __str__(self):
+        return self.user.username
+
+
 class Speciality(models.Model):
     name = models.CharField(max_length=50)
     is_active = models.BooleanField(default=True)
     description = models.TextField(null=True, blank=True)
-    teacher = models.ForeignKey(User, on_delete=models.SET_NULL, null=True, blank=True)
+    teacher = models.ForeignKey(Teacher, on_delete=models.CASCADE)
     
     class Meta:
         verbose_name = 'Speciality'
