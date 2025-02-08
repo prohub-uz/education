@@ -40,7 +40,7 @@ class Speciality(models.Model):
 class Module(models.Model):
     name = models.CharField(max_length=50)
     speciality = models.ForeignKey(Speciality, on_delete=models.CASCADE)
-    price = models.IntegerField(validators=[MinValueValidator(0)])
+    price = models.FloatField(validators=[MinValueValidator(0)])
     description = models.TextField(null=True, blank=True)
     
     

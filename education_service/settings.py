@@ -124,10 +124,41 @@ STATIC_URL = 'static/'
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
-RABBITMQ_URL = config('RABBITMQ_URL')
-RABBITMQ_HOST = config('RABBITMQ_HOST')
-RABBITMQ_PORT = config('RABBITMQ_PORT')
-RABBITMQ_USER = config('RABBITMQ_USER')
-RABBITMQ_PASSWORD = config('RABBITMQ_PASSWORD')
+# RABBITMQ_URL = config('RABBITMQ_URL')
+# RABBITMQ_HOST = config('RABBITMQ_HOST')
+# RABBITMQ_PORT = config('RABBITMQ_PORT')
+# RABBITMQ_USER = config('RABBITMQ_USER')
+# RABBITMQ_PASSWORD = config('RABBITMQ_PASSWORD')
 
 AUTH_USER_MODEL = 'education.User'
+
+CSRF_COOKIE_DOMAIN = config('CSRF_COOKIE_DOMAIN')
+CSRF_COOKIE_SECURE = True
+SESSION_COOKIE_SECURE = True
+SECURE_HSTS_INCLUDE_SUBDOMAINS = True
+
+SERVER_NAME = config('SERVER_NAME')
+
+CORS_ALLOW_ALL_ORIGINS = False
+CORS_ALLOWED_ORIGINS = config('CORS_ALLOWED_ORIGINS').split(' ')
+CSRF_TRUSTED_ORIGINS = config('CSRF_TRUSTED_ORIGINS').split(' ')
+CORS_ALLOW_CREDENTIALS = config('CORS_ALLOW_CREDENTIALS', cast=bool, default=False)
+
+LOGGING = {
+    'version': 1,
+    'disable_existing_loggers': False,
+    'handlers': {
+        'file': {
+            'level': 'ERROR',
+            'class': 'logging.FileHandler',
+            'filename': 'errors.log',
+        },
+    },
+    'loggers': {
+        'django': {
+            'handlers': ['file'],
+            'level': 'ERROR',
+            'propagate': True,
+        },
+    },
+}
