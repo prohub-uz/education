@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import User, Speciality, Module, Lesson, Teacher
+from .models import User, Speciality, Module, Lesson, Teacher, Homework
 
 @admin.register(User)
 class UserAdmin(admin.ModelAdmin):
@@ -9,7 +9,7 @@ class UserAdmin(admin.ModelAdmin):
 
 @admin.register(Speciality)
 class SpecialityAdmin(admin.ModelAdmin):
-    list_display = ('name', 'description', 'teacher', 'id')
+    list_display = ('name', 'description', 'picture', 'teacher', 'id')
     list_filter = ('teacher',)
     ordering = ['id']
 
@@ -33,4 +33,11 @@ class LessonAdmin(admin.ModelAdmin):
 class TeacherAdmin(admin.ModelAdmin):
     list_display = ('user', 'about', 'is_active', 'id')
     list_editable = ('is_active',)
+    ordering = ['id']
+
+
+@admin.register(Homework)
+class HomeworkAdmin(admin.ModelAdmin):
+    list_display = ('lesson', 'name', 'description', 'source', 'id')
+    list_filter = ('lesson',)
     ordering = ['id']

@@ -24,10 +24,11 @@ class Teacher(models.Model):
 
 
 class Speciality(models.Model):
-    name = models.CharField(max_length=50)
+    name = models.CharField(max_length=50, db_index=True)
     is_active = models.BooleanField(default=True)
     description = models.TextField(null=True, blank=True)
     teacher = models.ForeignKey(Teacher, on_delete=models.CASCADE)
+    picture = models.URLField(null=True, blank=True)
     
     class Meta:
         verbose_name = 'Speciality'
@@ -38,7 +39,7 @@ class Speciality(models.Model):
 
 
 class Module(models.Model):
-    name = models.CharField(max_length=50)
+    name = models.CharField(max_length=50, db_index=True)
     speciality = models.ForeignKey(Speciality, on_delete=models.CASCADE)
     price = models.FloatField(validators=[MinValueValidator(0)])
     description = models.TextField(null=True, blank=True)
@@ -53,7 +54,7 @@ class Module(models.Model):
 
 
 class Lesson(models.Model):
-    name = models.CharField(max_length=50)
+    name = models.CharField(max_length=50, db_index=True)
     module = models.ForeignKey(Module, on_delete=models.CASCADE)
     description = models.TextField(null=True, blank=True)
     source = models.URLField(null=True, blank=True)
@@ -64,4 +65,17 @@ class Lesson(models.Model):
     
     def __str__(self):
         return self.name
+
+
+class Homework(models.Model):
+    name = models.CharField(max_length=100, db_index=True)
+    lesson = models.ForeignKey(Lesson, on_delete=models.CASCADE)
+    description = models.TextField(null=True, blank=True)
+    source = models.URLField(null=True, blank=True)
     
+    class Meta:
+        verbose_name = 'Homework'
+        verbose_name_plural = 'Homeworks'
+    
+    def __str__(self):
+        return self.name

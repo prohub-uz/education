@@ -4,6 +4,7 @@ from education.services.Clients.Views.ModuleDetailView import ModuleDetailView
 from education.services.Clients.Views.GetLessonsListView import GetLessonsListView
 from education.services.Clients.Views.LessonDetailView import LessonDetailView
 from education.services.Clients.Views.GetTeachersListView import GetTeachersListView
+from education.services.Clients.Views.GetSpecialityDetailView import GetSpecialityDetailView
 
 # Get list of Specialities
 GetListSpecialities = GetListSpecialities().as_view()
@@ -26,3 +27,7 @@ LessonDetailView = LessonDetailView.as_view()
 
 # Get list of Teachers
 GetTeachersListView = GetTeachersListView().as_view()
+
+
+# Get speciality by id
+GetSpecialityDetailView = GetSpecialityDetailView.as_view()
