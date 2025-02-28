@@ -23,12 +23,24 @@ class Teacher(models.Model):
         return self.user.username
 
 
+class Category(models.Model):
+    name = models.CharField(max_length=50, db_index=True)
+    
+    class Meta:
+        verbose_name = 'Category'
+        verbose_name_plural = 'Categories'
+    
+    def __str__(self):
+        return self.name
+    
+
 class Speciality(models.Model):
     name = models.CharField(max_length=50, db_index=True)
     is_active = models.BooleanField(default=True)
     description = models.TextField(null=True, blank=True)
     teacher = models.ForeignKey(Teacher, on_delete=models.CASCADE)
     picture = models.URLField(null=True, blank=True)
+    category = models.ForeignKey(Category, on_delete=models.CASCADE)
     
     class Meta:
         verbose_name = 'Speciality'

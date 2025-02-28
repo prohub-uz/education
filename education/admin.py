@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import User, Speciality, Module, Lesson, Teacher, Homework
+from .models import User, Speciality, Module, Lesson, Teacher, Homework, Category
 
 @admin.register(User)
 class UserAdmin(admin.ModelAdmin):
@@ -7,9 +7,14 @@ class UserAdmin(admin.ModelAdmin):
     ordering = ['id']
 
 
+@admin.register(Category)
+class CategoryAdmin(admin.ModelAdmin):
+    list_display = ('name', 'id')
+    ordering = ['id']
+
 @admin.register(Speciality)
 class SpecialityAdmin(admin.ModelAdmin):
-    list_display = ('name', 'description', 'picture', 'teacher', 'id')
+    list_display = ('name', 'category', 'description', 'picture', 'teacher', 'id')
     list_filter = ('teacher',)
     ordering = ['id']
 
