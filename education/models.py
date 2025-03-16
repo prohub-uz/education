@@ -41,6 +41,10 @@ class Speciality(models.Model):
     teacher = models.ForeignKey(Teacher, on_delete=models.CASCADE)
     picture = models.URLField(null=True, blank=True)
     category = models.ForeignKey(Category, on_delete=models.CASCADE)
+    for_who = models.TextField(null=True, blank=True)
+    requirements = models.TextField(null=True, blank=True)
+    what_will_you_learn = models.TextField(null=True, blank=True)
+    duration = models.PositiveIntegerField(validators=[MinValueValidator(0)])
     
     class Meta:
         verbose_name = 'Speciality'
